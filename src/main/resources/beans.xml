@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans>
+    <!--id标识对象，class是类的全限定类名-->
+    <bean id="userDao" class="com.ittaotao.module2.ioc.UserDaoImpl">
+        <property name="ConnectionUtils" ref="connectionUtils"/>
+    </bean>
+    <bean id="userService" class="com.ittaotao.module2.ioc.UserService">
+
+        <property name="UserDao" ref="userDao"></property>
+    </bean>
+
+
+    <!--配置新增的三个Bean-->
+    <bean id="connectionUtils" class="com.ittaotao.module2.ioc.ConnectionUtils"></bean>
+
+    <!--事务管理器-->
+    <bean id="transactionManager" class="com.ittaotao.module2.ioc.TransactionManager">
+        <property name="ConnectionUtils" ref="connectionUtils"/>
+    </bean>
+
+    <!--代理对象工厂-->
+    <bean id="proxyFactory" class="com.ittaotao.module2.ioc.ProxyFactory">
+        <property name="TransactionManager" ref="transactionManager"/>
+    </bean>
+</beans>
