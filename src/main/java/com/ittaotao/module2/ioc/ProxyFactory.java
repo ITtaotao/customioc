@@ -62,7 +62,7 @@ public class ProxyFactory {
         return Enhancer.create(obj.getClass(), (MethodInterceptor) (o, method, objects, methodProxy) -> {
             Object result = null;
             try {
-                // 开启事务(关闭事务的自动提交)
+                // 开启事务
                 transactionManager.beginTransaction();
 
                 result = method.invoke(obj, objects);

@@ -1,11 +1,13 @@
 package com.ittaotao.module2.ioc;
 
 public class UserService {
-    // 最佳状态
+
     private UserDao userDao;
 
-    // 构造函数传值/set方法传值
-
+    /**
+     * @param accountDao
+     * @desc 使用 setter getter 注入
+     */
     public void setUserDao(UserDao accountDao) {
         this.userDao = accountDao;
     }
