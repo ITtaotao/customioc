@@ -73,7 +73,6 @@ public class ProxyFactory {
             } catch (Exception e) {
                 // 回滚事务
                 transactionManager.rollback();
-                throw e;
             }
             return result;
         });
